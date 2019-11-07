@@ -71,3 +71,11 @@ router.post('/login', (req, res) => {
     res.status(200).send({ auth: true, token: token, user: user });
   });
 });
+
+app.use(router)
+
+let port = process.env.PORT || 3000;
+
+let server = app.listen(port, function() {
+  console.log("express server listening on port " + port)
+});
