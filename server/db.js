@@ -1,6 +1,8 @@
 "use strict";
 const sqlite3 = require('sqlite3').verbose();
 
+
+// Database Functions - class for our database to abstract the basic functions we need
 class Db {
   constructor(file) {
     this.db = new sqlite3.Database(file);
