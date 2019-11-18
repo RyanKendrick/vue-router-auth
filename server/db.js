@@ -51,4 +51,4 @@ class Db {
   }
 }
 
-module.exports = DB
+module.exports = Db

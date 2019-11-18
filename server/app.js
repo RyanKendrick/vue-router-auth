@@ -6,9 +6,9 @@ const DB = require('./db');
 const config = require('./config');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const bodyparser = require('body-parser');
+const bodyParser = require('body-parser');
 
-const db = new DB("sqlitedb");
+const db = new DB("sqlitedb")
 const app = express();
 const router = express.Router();
 
@@ -36,7 +36,7 @@ router.post('/register', function(req, res) {
     if (err) return res.status(500).send("There was a problem registering the user.")
     db.selectByEmail(req.body.email, (err,user) => {
       if (err) return res.status(500).send("There was a problem getting user.")
-      let token - jwt.sign({ id: user.id }, config.secret, {expiresIn: 86400});
+      let token = jwt.sign({ id: user.id }, config.secret, {expiresIn: 86400});
       res.status(200).send({ auth: true, token: token, user: user});
     });
   });
