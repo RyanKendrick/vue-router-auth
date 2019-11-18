@@ -2,6 +2,12 @@
  <div class="hello">
    <h1> Vue-Router-Auth </h1>
    <h2>{{ msg }}</h2>
+   <button type="button" name="button">
+     <a href="http://localhost:8080/Register">Register</a>
+   </button>
+   <button type="button" name="button">
+     <a href="http://localhost:8080/Login">Login</a>
+   </button>
  </div>
 </template>
 
@@ -9,7 +15,7 @@
   export default {
     data () {
       return {
-        msg: 'Vue Authentication and Route handling User Vue-router'
+        msg: 'Vue Authentication and Route handling Using Vue-router'
       }
     }
   }
