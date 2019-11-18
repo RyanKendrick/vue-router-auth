@@ -40,7 +40,8 @@
   </div>
 </template>
 
-<!-- Script handles registration -->
+
+<!-- Script handles registration - similar in structure to the Login.vue file. It creates the register component and accompanying method to handle user submission of the registration form. -->
 <script>
   export default {
     props: ["nextUrl"],
