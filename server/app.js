@@ -20,6 +20,7 @@ const allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', '*');
   res.header('Access-Control-Allow-Headers', '*');
+  next();
 }
 
 app.use(allowCrossDomain);
@@ -47,7 +48,7 @@ router.post('/register-admin', function(req, res) {
   db.insertAdmin([
     req.body.name,
     req.body.email,
-    bcrypt.hashsync(req.body.password, 8),
+    bcrypt.hashSync(req.body.password, 8),
     1
   ],
   function (err) {

@@ -30,6 +30,14 @@ let router = new Router({
       }
     },
     {
+      path: '/register',
+      name: 'register',
+      component: Register,
+      meta: {
+        guest: true
+      }
+    },
+    {
       path: '/dashboard',
       name: 'userboard',
       component: UserBoard,
@@ -42,7 +50,7 @@ let router = new Router({
       name: 'admin',
       component: Admin,
       meta: {
-        requireAuth: true,
+        requiresAuth: true,
         is_admin: true
       }
     },
@@ -51,7 +59,7 @@ let router = new Router({
 
 // Vue-router has a beforeEach method that is called before each route is processed. This is where we can define our checking condition and restrict user access. The method takes three parameters — to, from and next. to is where the user wishes to go, from is where the user is coming from, next is a callback function that continues the processing of the user request. Our check is on the to object.
 
-router.beforeEach(() => {
+router.beforeEach((to, from, next) => {
   // if route requiresAuth, check for a jwt token showing the user is logged in.
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (localStorage.getItem('jwt') == null) {

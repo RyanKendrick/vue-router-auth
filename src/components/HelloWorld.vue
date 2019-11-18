@@ -1,6 +1,7 @@
 <template>
  <div class="hello">
    <h1> Vue-Router-Auth </h1>
+   <h2>{{ msg }}</h2>
  </div>
 </template>
 
